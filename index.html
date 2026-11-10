@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>El semáforo de emociones</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="app">
+ <header class="topbar">
+  <div class="brand"><div class="brand-mark">◉</div><div><div class="brand-name">EL SEMÁFORO</div><div class="brand-sub">Una pausa para sentir mejor</div></div></div>
+  <div class="top-actions"><button class="ghost" id="helpBtn">¿Cómo funciona?</button><button class="ghost" id="resetBtn">↻ Reiniciar</button></div>
+ </header>
+ <main>
+  <section class="hero">
+   <div>
+    <div class="eyebrow">Reconoce · Respira · Decide</div>
+    <h1>Lo que sientes<br><span>también importa.</span></h1>
+    <p class="lead">Todas las emociones tienen un mensaje. Elige la luz que se parece a cómo te sientes ahora y recibe una pequeña idea para continuar.</p>
+    <div class="hero-note"><span class="dot"></span> No hay respuestas correctas ni incorrectas. Este espacio es para ti.</div>
+   </div>
+   <div>
+    <div class="traffic-wrap">
+     <div class="traffic-glow"></div>
+     <div class="traffic" aria-label="Semáforo interactivo">
+      <button class="light red" data-color="red" aria-label="Rojo: necesito detenerme"><span>Ⅱ</span></button>
+      <button class="light yellow" data-color="yellow" aria-label="Amarillo: necesito pensar"><span>…</span></button>
+      <button class="light green" data-color="green" aria-label="Verde: estoy listo para actuar"><span>✓</span></button>
+     </div>
+    </div>
+    <div class="instruction">TOCA UNA LUZ PARA DESCUBRIR TU MENSAJE</div>
+   </div>
+  </section>
+  <section>
+   <div class="section-head"><div><h2>¿Qué necesitas en este momento?</h2><p>Elige con libertad. Puedes cambiar de luz cuando quieras.</p></div><button class="quick-btn" id="randomBtn">✦ Sorpréndeme con una luz</button></div>
+   <div class="cards">
+    <article class="mood-card" style="--color:var(--red);--glow:var(--red)">
+     <div class="card-top"><span class="mini-light"></span><h3>Rojo · Me detengo</h3></div>
+     <p>Si sientes enojo, frustración o estás a punto de reaccionar, haz una pausa antes de actuar.</p>
+     <div class="card-bottom"><span id="redCount">0 de 36 ideas descubiertas</span><button class="text-btn" data-color="red">Elegir rojo ↗</button></div><div class="progress"><span id="redProgress"></span></div>
+    </article>
+    <article class="mood-card" style="--color:var(--yellow);--glow:var(--yellow)">
+     <div class="card-top"><span class="mini-light"></span><h3>Amarillo · Lo pienso</h3></div>
+     <p>Si estás incómodo, confundido o inquieto, date tiempo para entender qué necesitas.</p>
+     <div class="card-bottom"><span id="yellowCount">0 de 36 ideas descubiertas</span><button class="text-btn" data-color="yellow">Elegir amarillo ↗</button></div><div class="progress"><span id="yellowProgress"></span></div>
+    </article>
+    <article class="mood-card" style="--color:var(--green);--glow:var(--green)">
+     <div class="card-top"><span class="mini-light"></span><h3>Verde · Puedo actuar</h3></div>
+     <p>Si estás tranquilo y dispuesto a dialogar, aprovecha para construir algo positivo.</p>
+     <div class="card-bottom"><span id="greenCount">0 de 36 ideas descubiertas</span><button class="text-btn" data-color="green">Elegir verde ↗</button></div><div class="progress"><span id="greenProgress"></span></div>
+    </article>
+   </div>
+  </section>
+ </main>
+ <footer class="footer"><span>EL SEMÁFORO DE EMOCIONES · Aprende a escuchar lo que sientes.</span><span>Respira. Date tiempo. Siempre puedes volver a intentarlo.</span></footer>
+</div>
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="modal">
+  <div class="modal-head"><div class="modal-tag"><span class="mini-light" id="modalDot"></span><span id="modalTag">ROJO · PAUSA</span></div><button class="close" id="closeBtn" aria-label="Cerrar">×</button></div>
+  <h2 id="modalTitle">Una idea para este momento</h2>
+  <p class="modal-copy" id="modalCopy"></p>
+  <div class="activity"><strong>Prueba esto</strong><span id="modalActivity"></span></div>
+  <div class="modal-actions"><button class="primary" id="nextBtn">Otra tarjeta ↗</button><button class="secondary" id="doneBtn">Lo hice ✓</button></div>
+  <div class="counter" id="modalCounter"></div>
+ </div>
+</div>
+
+<div class="action-backdrop" id="actionBackdrop" role="dialog" aria-modal="true" aria-labelledby="actionTitle">
+ <div class="action-dialog">
+  <div class="action-icon" id="actionIcon">✦</div>
+  <h2 id="actionTitle">¿Cómo funciona?</h2>
+  <p id="actionDescription"></p>
+  <div class="action-list" id="actionList"></div>
+  <div class="action-buttons">
+   <button class="action-cancel" id="actionCancel">Cerrar</button>
+   <button class="action-confirm" id="actionConfirm">Entendido</button>
+  </div>
+ </div>
+</div>
+
+<div class="toast" id="toast">¡Bien hecho! Cada pequeño paso cuenta.</div>
+<script src="script.js"></script>
+</body>
+</html>
